@@ -1,0 +1,22 @@
+数据库的操作：
+如：数据库用户名root 密码mysql
+sql语句后面要以;结尾或者\g结尾。
+
+链接数据库：mysql -uroot -pmysql
+退出数据库：exit
+查看创建数据库：shoe databases;        必须要有s
+查看当前正在使用的数据库：select database();       # NULL指的是空
+使用数据库：use database(这是数据库名字);
+显示数据库版本：select version();
+显示时间：select now();
+创建数据库：create database demo(即数据库名字);
+指定字符集：create database demo charset=utf8;     # 必须是utf-8字符集
+查看数据库的创建语句：show create database demo;
+删除数据库：drop database demo;
+
+
+数据表的操作：
+
+
+
+
