@@ -519,118 +519,287 @@ printTuple()
 
 # 42.问题：对于给定的元组 (1,2,3,4,5,6,7,8,9,10)，编写一个程序，在一行中输出前半部分值，在一行中输出后半部分值。
 # 提示：使用 [n1:n2] 表示法从元组中获取切片。
-
+'''略'''
 
 # 43.问题：编写程序生成并输出另一个元组，其值是给定元组 (1,2,3,4,5,6,7,8,9,10) 中的偶数。
 # 提示：使用 “for” 来迭代元组，使用 tuple () 从列表中生成一个 tuple。
-
+'''''
+tuple1 = (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+li = list()
+for i in range(len(tuple1)):
+    if tuple1[i] % 2 == 0:
+        li.append(tuple1[i])
+tuple2 = tuple(li)
+print(tuple2)
+'''
 
 # 44.问题：写一个程序，接受一个字符串作为输入，如果字符串是 “yes” 或 “YES” 或 “Yes”，否则打印 “No”。
 # 提示：使用 if 语句判断条件。
-
+'''if s == "yes" or s == "YES" or s == "Yes":print("Yes")'''
 
 # 45.问题：编写一个程序，可以使用过滤函数过滤列表中的偶数。列表是:[1,2,3,4,5,6,7,8,9,10]。
 # 提示：使用 filter () 过滤列表中的一些元素。使用 lambda 定义匿名函数。
-
+'''
+li = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+evenNumber = filter(lambda x: x % 2 == 0, li)
+for even in evenNumber:
+    print(even)
+'''
 
 # 46.问题：编写一个程序，可以使用 map () 构造一个列表，其中的元素是 [1,2,3,4,5,6,7,8,9,10] 中元素的平方。
 # 提示：使用 map () 生成列表。使用 lambda 定义匿名函数。
-
+'''
+li = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+squaredNumbers = map(lambda x: x ** 2, li)
+print(squaredNumbers)
+'''
 
 # 47.问题：编写一个程序，它可以 map () 和 filter () 生成一个列表，其中的元素是 [1,2,3,4,5,6,7,8,9,101 中的偶数的平方。
 # 提示：使用 map () 生成列表。使用 filter () 来过滤列表中的元素。使用 lambda 定义匿名函数。
-
+'''
+li = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+squaredNumbers = map(lambda x: x ** 2, filter(lambda x: x % 2 == 0, li))
+print(squaredNumbers)
+for j in squaredNumbers:
+    print(j)
+'''
 
 # 48.问题：编写一个程序，它可以 filter () 生成一个列表，其中的元素是 1 到 20 之间的偶数 (包括两个元素)。
 # 提示：使用 filter () 来过滤列表中的元素。使用 lambda 定义匿名函数。
+'''
+evenNumbers = filter(lambda x: x % 2 == 0, range(1, 21))
+for even in evenNumbers:
+    print(even)
+'''
 
 
 # 49.问题：编写一个程序，它可以使用 map () 生成一个列表，其中的元素是 1 到 20 之间的数的平方 (包括两个数)。
 # 提示：使用 map () 生成列表。使用 lambda 定义匿名函数。
-
+'''
+squaredNumbers = map(lambda x: x ** 2, range(1, 21))
+for even in squaredNumbers:
+    print(even)
+'''
 
 # 50.问题：定义一个名为 American 的类，它有一个名为 printNationality 的静态方法。
 # 提示：使用 @staticmethod 装饰器来定义类的静态方法。
-
+'''
+class American(object):
+    @staticmethod
+    def printNationality():
+        print("America")
+anAmerican = American()
+anAmerican.printNationality()
+American.printNationality()
+'''
 
 # 51.问题：定义一个名为 American 的类及其子类 NewYorker。
 # 提示：使用类子类 (ParentClass) 来定义子类。
+'''''
+class American():
+    pass
+class NewYorker(American):
+    pass
+anAmerican = American()
+aNewYorker = NewYorker()
+print(anAmerican)
+print(aNewYorker)
+'''
 
 
 # 52.问题：定义一个名为 Circle 的类，可以用半径来构造。Circle 类有一个可以计算面积的方法。
 # 提示：使用 def methodName (self) 定义一个方法。
-
+'''''
+class Circle(object):
+    def __init__(self, r):
+        self.radius = r
+    def area(self):
+        return self.radius ** 2 * 3.14159
+aCircle = Circle(4)
+print(aCircle.area())
+'''
 
 # 53.问题：定义一个名为 Rectangle 的类，它可以由长度和宽度构造。矩形类有一个方法可以计算面积。
 # 提示：使用 def methodName (self) 定义一个方法。
-
+'''''
+class Rectangle(object):
+    def __init__(self, width, length):
+        self.width = width
+        self.length = length
+    def area(self):
+        return self.width * self.length
+aRectangle = Rectangle(5, 6)
+print(aRectangle.area())
+'''
 
 # 54.问题：定义一个名为 Shape 的类及其子类 Square。Square 类有一个 init 函数，它以长度作为参数。
 # 这两个类都有一个 area 函数，可以打印形状的区域，形状的区域默认为 0。
 # 提示：要覆盖父类中的方法，可以在父类中定义一个同名的方法。
+''''
+class Shape(object):
+    def __init__(self):
+        pass
+    def area(self):
+        return 0
+class Square(Shape):
+    def __init__(self, l):
+        self.length = l
+    def area(self):
+        return self.length ** 2
+aSquare = Square(6)
+print(aSquare.area())
+'''
 
 
 # 55.问题：请引发 RuntimeError 异常。
 # 提示：使用 raise () 引发异常。
-
+'''raise RuntimeError("something wrong")'''
 
 # 56.问题：编写一个函数来计算 5/0，并使用 try/except 来捕获异常。
 # 提示：使用 try/exexception 捕获异常。
+'''''
+def throwError():
+    return 5 / 0
+try:
+    throwError()
+except ZeroDivisionError:
+    print("division by zero!")
+except Exception:
+    print('caught an exception.')
+finally:
+    print("in finally block for cleanup.")
+'''
 
 
 # 57.问题：定义一个自定义异常类，它将字符串消息作为属性。
 # 提示：要定义一个自定义异常，我们需要定义一个继承自 exception 的类。
-
+'''
+class MyError(Exception):
+    """My own exception class.
+    Attributes:
+        msg -- explanation of the error"""
+    def __init__(self, msg):
+        self.msg = msg
+error = MyError("something wrong")
+print(error)
+'''''
 
 # 58.问题：假设我们有一些’username@companyname.com ' 格式的电子邮件地址，请编写程序打印给定电子邮件地址的用户名，用户名和公司名都只由字母组成。
 # 示例：如果下面的电子邮件地址作为程序的输入：john@google.com. 那么，程序的输出应该是：john 在向问题提供输入数据的情况下，应该假定它是控制台输入。
 # 提示：使用 \w 来匹配字母。
-
+'''
+import re
+emailAddress = input()
+pattern = "(\w+)@(\w+)\.(com)"
+r = re.match(pattern, emailAddress)
+print(r.group(1))       # r.group(N):返回第N个括号匹配到的内容。
+print(r.group(2))
+'''
 
 # 59.问题：假设我们有一些 “username@companyname.com” 格式的电子邮件地址，请编写程序打印给定的电子邮件地址的公司名称；用户名和公司名都只由字母组成。
 # 示例：如果下面的电子邮件地址作为程序的输入：john@google.com 那么，程序的输出应该是：google 在向问题提供输入数据的情况下，应该假定它是控制台输入。
 # 提示：使用 \w 来匹配字母。
-
+'''同上。'''
 
 # 60.问题：编写一个程序，接收一个由空格分隔的单词序列作为输入，打印只由数字组成的单词。
 # 示例：如果下面的单词作为程序的输入：2 cats and 3 dogs； 那么，程序的输出应该是：[‘2’, ‘3’] 在向问题提供输入数据的情况下，应该假定它是控制台输入。
 # 提示：使用 re.findall () 使用正则表达式查找所有子字符串。
-
+'''
+import re
+str = input()
+print(re.findall("\d+", str))
+'''
 
 # 61.问题：打印 unicode 字符串 “hello world”。
 # 提示：使用 u’strings’格式来定义 unicode 字符串；
-
+'''
+unicodeString = u"Hello World."
+print(unicodeString)
+print(type(unicodeString))
+'''
 
 # 62.问题：python 中的解码与编码；
 # 提示：使用 encode () 与 decode () 函数进行转换。
-
+'''
+s = 'CSDN，成就一亿技术人'
+enc = s.encode('utf-8')
+dec = enc.decode('utf-8')
+print(enc)
+print(dec)
+'''
 
 # 63.问题：编写一个特殊注释来表明 Python 源代码文件是 unicode 格式的。
-
+# -*- encoding: utf-8 -*-
+# ---------------------------------#
 
 # 64.问题：写一个程序来计算 1/2+2/3+3/4+…+n/(n+1)。 示例：如果下面的 n 作为程序的输入：5； 那么，程序的输出应该是：3.55；
 # 提示：使用 float () 将整数转换为浮点数。
-
+'''
+n = int(input('输入一个数'))
+sum = 0.0
+for i in range(1, n+1):
+    sum += float(float(i) / (i+1))
+print(sum)
+'''
 
 # 65.问题：编写程序计算：当 n>0 和 F (0)=1 时，F (n)=F (n-1)+100 通过控制台输入一个给定的 n (n>0)。
 # 示例：如果下面的 n 作为程序的输入：5， 那么，程序的输出应该是：500；
 # 提示：我们可以在 Python 中定义递归函数。
-
+'''
+def f(n):
+    if n == 0:
+        return 0
+    else:
+        return f(n - 1) + 100
+n = int(input())
+print(f(n))
+'''
 
 # 66.问题：斐波那契数列的计算公式如下：如果 n=0，f (n)=0；如果 n=1，f (n)=1；如果 n>1，f (n)=f (n-1)+f (n-2)；
 # 请编写一个程序，在控制台输入给定 n 的情况下计算 f (n) 的值。 示例：如果下面的 n 作为程序的输入：7； 那么，程序的输出应该是：13；
-# 提示：我们可以在 Python 中定义递归函数。
-
+'''
+def f(n):
+    if n == 0:
+        return 0
+    elif n == 1:
+        return 1
+    else:
+        return f(n - 1) + f(n - 2)
+n = int(input())
+print(f(n))
+'''
 
 # 67.问题：斐波那契数列的计算公式如下：如果 n=0，f (n)=0；如果 n=1，f (n)=1；如果 n>1，f (n)=f (n-1)+f (n-2)；
 # 请编写一个程序使用列表理解输出逗号分隔的 Fibonacci 序列，并通过控制台输入给定的 n。
 # 示例：如果下面的 n 作为程序的输入：7； 那么，程序的输出应该是：0,1,1,2,3,5,8,13；
 # 提示：我们可以在 Python 中定义递归函数。使用列表理解从现有列表生成列表。使用 string.join () 连接字符串列表。
-
+'''
+def f(n):
+    if n == 0:
+        return 0
+    elif n == 1:
+        return 1
+    else:
+        return f(n - 1) + f(n - 2)
+n = int(input())
+values = [str(f(x)) for x in range(0, n+1)]     # range左闭右开，斐波那契n0到n
+print(','.join(values))
+'''
 
 # 68.问题：请使用 generator 编写一个程序，当 n 由控制台输入时，以逗号分隔的形式输出 0 和 n 之间的偶数；
 # 示例：如果下面的 n 作为程序的输入 10； 那么，程序的输出应该是：0,2,4,6,8,10
 # 提示：使用 yield 生成生成器中的下一个值。
+def evenGenerator(n):
+    i = 0
+    while i <= n:
+        if i % 2 == 0:
+            yield i
+        i += 1
+n = int(input())
+values = []
+for even in evenGenerator(n):
+    values.append(str(even))
+print(','.join(values))
 
 # 669.问题：请编写一个生成器程序，以逗号分隔的形式输出 0 到 n 之间可以被 5 和 7 整除的数字，而 n 是通过控制台输入的。
 # 示例：如果下面的 n 作为程序的输入：100； 那么，程序的输出应该是：0,35,70；
