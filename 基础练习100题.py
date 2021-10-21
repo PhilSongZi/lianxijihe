@@ -789,6 +789,7 @@ print(','.join(values))
 # 68.问题：请使用 generator 编写一个程序，当 n 由控制台输入时，以逗号分隔的形式输出 0 和 n 之间的偶数；
 # 示例：如果下面的 n 作为程序的输入 10； 那么，程序的输出应该是：0,2,4,6,8,10
 # 提示：使用 yield 生成生成器中的下一个值。
+'''
 def evenGenerator(n):
     i = 0
     while i <= n:
@@ -800,63 +801,112 @@ values = []
 for even in evenGenerator(n):
     values.append(str(even))
 print(','.join(values))
+'''
 
-# 669.问题：请编写一个生成器程序，以逗号分隔的形式输出 0 到 n 之间可以被 5 和 7 整除的数字，而 n 是通过控制台输入的。
+# 69.问题：请编写一个生成器程序，以逗号分隔的形式输出 0 到 n 之间可以被 5 和 7 整除的数字，而 n 是通过控制台输入的。
 # 示例：如果下面的 n 作为程序的输入：100； 那么，程序的输出应该是：0,35,70；
 # 提示：使用 yield 生成生成器中的下一个值。
+'''
+def numGenerator(n):
+    for i in range(n + 1):
+        if i % 5 == 0 and i % 7 == 0:
+            yield i
+n = int(input())
+values = []
+for i in numGenerator(n):
+    values.append(str(i))
+print(','.join(values))
+'''
+
 
 # 70.问题：请写 assert 语句来验证列表 [2,4,6,8] 中的每个数字都是偶数。
 # 提示：使用 “断言表达式” 进行断言。
+'''
+li = [2, 4, 6, 8, 9]
+for i in li:
+    assert i % 2 == 0, '数据错误'       # 循环执行到li[] = 9时报AssertionError退出。
+    print(i)
+'''
 
 # 71.问题：请编写一个程序，从控制台接收基本数学表达式，并输出计算结果。 示例：如果下面的字符串作为程序的输入：35 + 3； 那么，程序的输出应该是：38；
 # 提示：使用 eval () 计算表达式。
+'''
+expression = input()
+print(eval(expression))
+'''
 
 # 72.问题：请编写一个二分搜索函数，搜索排序列表中的项。函数应该返回要在列表中搜索的元素的索引。
 # 提示：使用 if/elif 来处理条件。
+'''
+import math
+def binary_search(list, element):
+    bottom = 0
+    top = len(list) - 1
+    index = -1
+    while top >= bottom and index == -1:
+        mid = int(math.floor((top + bottom) / 2.0))
+        if list[mid] == element:
+            index = mid
+        elif list[mid] > element:
+            top = mid - 1
+        else:
+            bottom = mid + 1
+    return index
+li = [2, 5, 7, 9, 11, 17, 22, 222]
+print(binary_search(li, 11))
+print(binary_search(li, 17))
+'''
 
 # 73.问题：随机生成 1,100 内的一个整数；
 # 提示：random.randint ()
+'''
+import random
+print(random.randint(a=1, b=100))   # 1 100内的整数
+print(random.random() * 100)    # 10 100内的浮点数
+print(random.random() * 100 - 5)     # 5-95之间的随机浮点数
+'''
 
-# 74.问题：请使用 Python math 模块生成一个值在 10 到 100 之间的随机浮点数。
-# 提示：使用 random.random () 在 [0,1] 中生成一个随机浮点数。
-
-# 75.问题：请使用 Python math 模块生成一个值在 5 到 95 之间的随机浮点数。
-# 提示：使用 random.random () 在 [0,1] 中生成一个随机浮点数。
 
 # 76.问题：请编写一个程序输出 O 和 10 之间的随机偶数使用随机模块和列表理解。
 # 提示：对列表中的随机元素使用 random.choice ()。
-
-# 77.问题：请编写一个程序输出一个随机数，它可以被 5 和 7 整除，在 0 和 10 之间，使用随机模块和列表理解。
-# 提示：对列表中的随机元素使用 random.choice ()。
-
-# 78.问题：请编写一个程序生成一个包含 100 到 200 之间的 5 个随机数的列表。
-# 提示：使用 random.sample () 生成一个随机值列表。
-
-# 79.问题：请编写一个程序随机生成一个列表，其中包含 100 到 200 之间的 5 个偶数。
-# 提示：使用 random.sample () 生成一个随机值列表。
-
-# 80.问题：请编写一个程序，随机生成一个列表，从 1 到 1000 (含 1000)，有 5 个数字，可以被 5 和 7 整除。
-# 提示：使用 random.sample () 生成一个随机值列表。
-
-# 81.问题：请写一个程序来随机打印一个 7 到 15 之间的整数 (包括 15)。
-# 提示：使用 random.randrange () 到一个给定范围内的随机整数。
+'''
+import random
+print(random.choice([x for x in range(11) if x % 2 == 0]))
+print(random.choice([i for i in range(201) if i % 5 ==0 and i % 7 == 0]))
+print(random.sample([i for i in range(100, 201) if i % 2 == 0], 5))     # 生成一个包含100到200之间的5个随机偶数的列表
+print(random.sample([i for i in range(201) if i % 5 == 0 and i % 7 == 0], 5))   # 1-1000中取5个被5和7整除的随机数组成列表
+print(random.randrange(7, 16))      # 随机打印一个 7 到 15 之间的整数 (包括 15)
+'''
 
 # 82.问题：请编写一个程序来压缩和解压字符串 "hello world!hello world!hello world!hello world!"。
 # 提示：使用 zlib.compress () 和 zlib.decompress () 来压缩和解压缩字符串。
+'''
+import zlib
+s = b'hello world!hello world!hello world!hello world!'
+t = zlib.compress(s)
+print(t)
+print(zlib.decompress(t))
+'''
 
 # 83.问题：请编写一个程序打印 100 次 “1+1” 执行的运行时间。
 # 提示：使用 timeit () 函数测量运行时间。
+'''
+from timeit import Timer
+t = Timer('for i in range(100): 1 + 1')
+print(t.timeit())
+'''
 
 
 # 84.问题：请编写一个程序洗牌和打印列表 [3,6,7,8]。
 # 提示：使用 shuffle () 函数洗牌列表。
-
-
-# 85.问题：请编写一个程序洗牌和打印列表 [3,6,7,8]。
-# 提示：使用 shuffle () 函数洗牌列表。
+from random import shuffle
+li = [3, 6, 7, 8]
+shuffle(li)
+print(li)
 
 # 86.问题：请编写一个程序，生成主语在 [“I”, “You”]，动词在 [“Play”, “Love”] 中，对象在 [“Hockey”,“Football”] 中的所有句子.
 # 提示：使用 list [index] 表示法从列表中获取元素。
+
 
 # 87.问题：请写一个程序打印列表，删除后删除偶数 [5,6,77,45,22,12,24]。
 # 提示：使用列表理解从列表中删除一组元素。
