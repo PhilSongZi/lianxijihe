@@ -9,3 +9,26 @@ import requests
 import re
 
 
+def getHtml(url):
+    pass
+
+
+def parseHtml(html):
+    pass
+
+
+def getContents():
+    pass
+
+
+def saveContents():
+    pass
+
+
+def main():
+    pass
+
+
+if __name__ == '__main__':
+    main()
+

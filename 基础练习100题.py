@@ -899,73 +899,148 @@ print(t.timeit())
 
 # 84.问题：请编写一个程序洗牌和打印列表 [3,6,7,8]。
 # 提示：使用 shuffle () 函数洗牌列表。
+'''
 from random import shuffle
 li = [3, 6, 7, 8]
 shuffle(li)
 print(li)
+'''
 
 # 86.问题：请编写一个程序，生成主语在 [“I”, “You”]，动词在 [“Play”, “Love”] 中，对象在 [“Hockey”,“Football”] 中的所有句子.
 # 提示：使用 list [index] 表示法从列表中获取元素。
-
+'''
+subjects = ['I', 'You']
+verbs = ['Play', 'Love']
+objects = ['Hockey', 'Football']
+for i in range(len(subjects)):
+    for j in range(len(verbs)):
+        for k in range(len(objects)):
+            sentences = "%s %s %s." % (subjects[i], verbs[j], objects[k])
+            print(sentences)
+'''
 
 # 87.问题：请写一个程序打印列表，删除后删除偶数 [5,6,77,45,22,12,24]。
 # 提示：使用列表理解从列表中删除一组元素。
+'''
+li = [5, 6, 77, 45, 22, 12, 24]
+li = [x for x in li if x % 2 != 0]
+print(li)
+'''
 
 # 88.问题：使用列表理解，请编写程序，删除 [12,24,35,70,88,120,155] 中可被 5 和 7 整除的删除数后，打印列表。
-# 提示：使用列表理解从列表中删除一组元素。最后，如果你的时间不是很紧张，并且又想快速的提高，最重要的是不怕吃苦，建议你可以价位 @762459510 ，那个真的很不错，很多人进步都很快，需要你不怕吃苦哦！大家可以去添加上看一下～
+# 提示：使用列表理解从列表中删除一组元素。
+'li = [x for x in li if x % 5 == 0 and x % 7 == 0]'
 
 # 89.问题：使用列表理解法，请编写一个程序，去掉 [12,24,35,70,88,120,155] 中的第 0,2,4,6 位置上的元素后打印列表。
 # 提示：使用列表理解从列表中删除一组元素。使用 enumerate () 来获取 (索引，值) 元组。
+'''
+li = [12, 24, 35, 70, 88, 120, 155]
+li = [x for (i, x) in enumerate(li) if i % 2 != 0]
+print(li)
+'''
 
 # 90.问题：使用列表理解，编写一个程序生成一个 358 三维数组，每个元素为 0。
 # 提示：使用列表理解来创建数组。
+'''
+array = [[[0 for col in range(8)] for col in range(5)] for col in range(3)]
+print(array)
+'''
 
 # 91.问题：利用列表理解，请编写一个程序，去掉 [12,24,35,70,88,120,155] 中的第 0，第 4，第 5 个数字后，将列表打印出来。
 # 提示：使用列表理解从列表中删除一组元素。使用 enumerate () 来获取 (index, value) 元组。
+'''
+li = [12, 24, 35, 70, 88, 120, 155]
+li = [x for (i, x) in enumerate(li) if i not in (0, 4, 5)]
+print(li)
+'''
 
 # 92.问题：通过使用列表理解，请编写一个程序，在 [12,24,35,24,88,120,155] 中删除值 24 后打印列表。
 # 提示：使用列表的 remove 方法删除一个值。
 
 # 93.问题：对于两个已知链表 [1,3,6,78,35,55] 和 [12,24,35,24,88,120,155]，编写一个程序来生成一个元素为上述两个链表交集的链表。
 # 提示：使用 set () 和 "&=" 进行集合相交操作。
-
+'''
+set1 = set([1, 3, 6, 78, 35, 55])
+set2 = set([12, 24, 35, 24, 88, 120, 155])
+set1 &= set2
+li = list(set1)
+print(li)
+'''
 
 # 94.问题：对于给定的列表 [12,24,35,24,88,120,155,88,120,155]，编写一个程序来打印这个列表 - 删除所有重复的值与原始顺序保留。
 # 提示：使用 set () 来存储一些没有重复的值。
+'''
+def removeDuplicate(li):
+    newli = []
+    seen = set()
+    for item in li:
+        if item not in seen:
+            seen.add(item)
+            newli.append(item)
+    return newli
+li = [12, 24, 35, 24, 88, 120, 155, 88, 120, 155]
+print(removeDuplicate(li))
+'''
 
 # 95.问题：定义一个类 Person 和它的两个子类：Male 和 Female。所有的类都有一个方法 “getGender”，它可以打印 “Male” 为男性类，“Female” 为女性类
 # 提示：使用子类 (Parentclass) 来定义子类。
+'''
+class Person(object):
+    def getGender(self):
+        return "unkonwn"
+class Male(Person):
+    def getGender(self):
+        return "Male"
+class Female(Person):
+    def getGender(self):
+        return "Female"
+'''
 
 # 96.问题：请编写一个程序，计算并打印由控制台输入的字符串中的每个字符的数量。
 # 示例：如果下面的字符串作为程序的输入：abcdefgab； 那么，程序的输出应该是：a,2 c,2 b,2 e,1 d,1 g,1 f,1；
 # 提示：使用 dict 存储键 / 值对。使用 dict.get () 方法查找具有默认值的键。
-
+'''
+dict1 = {}
+s = input()
+for s in s:
+    dict1[s] = dict1.get(s, 0) + 1
+print('\n'.join(['%s,%s' % (k, v) for k, v in dict1.items()]))
+'''
 
 # 97.问题：请编写一个程序，从控制台接收一个字符串，并以相反的顺序打印出来。
 # 示例：如果下面的字符串作为程序的输入：rise to vote sir； 那么，程序的输出应该是:ris etov ot esir；
 # 提示：使用 list [::-1] 以相反的顺序迭代一个列表。
-
+'''
+s = input()
+s = s[::-1]
+print(s)
+'''
 
 # 98..问题：请编写一个程序，从控制台接收一个字符串，并打印具有偶数索引的字符；
 # 示例：如果下面的字符串作为程序的输入：H1e2l3l4o5w6o7r8l9d 那么，程序的输出应该是：Helloworld；
 # 提示：使用 list [:2] 来迭代第 2 步中的列表。
+'''s = s[::2]'''
 
 # 99.问题：请写一个程序，打印 [1,2,3] 的所有排列；
 # 提示：使用 itertools.permutations) 得到 list 的排列。
+# 能直接用就别去造轮子。。。。
+'''
+import itertools
+print(list(itertools.permutations([1, 2, 3])))
+'''
 
 # 100.写一个程序来解决一个中国古代的经典难题：我们数农场里的鸡和兔子中有 35 个头和 94 条腿。我们有多少只兔子和多少只鸡？
 # 提示：使用 for 循环来迭代所有可能的解决方案。
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+'''
+def solve(numheads, numlegs):
+    ns = "No Solution!"
+    for i in range(numheads + 1):
+        j = numheads - i
+        if 2 * i + 4 * j == numlegs:
+            return i, j
+    return ns, ns
+numheads = 35
+numlegs = 94
+solution = solve(35, 94)
+print(solution)
+'''
