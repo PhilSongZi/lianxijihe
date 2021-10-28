@@ -42,6 +42,12 @@ Namespaces are one honking great idea -- let's do more of those!
 > 
 >b = ['apple', 'pitaya', 'grape']
 9. 文件操作：参数列表：{r:读取（默认），w:写入(会截断以前的内容)，x:写入（如果文件已经存在会产生异常），a:追加（将内容写入到已有文件的末尾），b:二进制模式，t:文本模式（默认），+:更新（既可以读又可以写）}。
+10. json 模块主要有四个比较重要的函数，分别是：
+    1. dump - 将 Python 对象按照 JSON 格式序列化到文件中
+    2. dumps - 将 Python 对象处理成 JSON 格式的字符串
+    3. load - 将文件中的 JSON 数据反序列化成对象
+    4. loads - 将字符串的内容反序列化成 Python 对象
+11. 
 
 
 
