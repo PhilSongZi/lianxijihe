@@ -84,8 +84,15 @@ ExplicitCapture(显式捕获)	仅捕获已被显式命名的组。
 4. Python中的正则表达：
    1. 
    
-
-
+## corepoint1：spider
+1. 技术清单：
+    1. 下载数据 - urllib / requests / aiohttp / httpx。
+    2. 解析数据 - re / lxml / beautifulsoup4 / pyquery。
+    3. 缓存和持久化 - mysqlclient / sqlalchemy / peewee / redis / pymongo。
+    4. 生成数字签名 - hashlib。
+    5. 序列化和压缩 - pickle / json / zlib。
+    6. 调度器 - multiprocessing / threading / concurrent.futures。
+2. 
 
 
 
